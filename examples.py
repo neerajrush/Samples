@@ -1,4 +1,4 @@
-def bubbleSort(arr, n):
+def bubble_sort(arr, n):
         for i in range (1, n):
                 j = i-1
                 k = i
@@ -6,7 +6,7 @@ def bubbleSort(arr, n):
                         arr[k], arr[j] = arr[j], arr[k]
                         j -= 1
                         k -= 1
-def insertionSort(arr):
+def insertion_sort(arr):
 	for i in range (1, len(arr)):
 		value = arr[i]
 		k = i
@@ -41,7 +41,7 @@ def quick_sort_r(arr, low, high):
 	pivot = partition(arr, low, high)
 	quick_sort_r(arr, low, pivot-1)
 
-def binomialCoef(n, k):
+def binomial_coefficient(n, k):
     C = [[0 for x in range(k+1)] for x in range(n+1)]
     for i in range(n+1):
         for j in range(min(i, k)+1):
