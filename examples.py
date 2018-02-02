@@ -54,8 +54,6 @@ def binomialCoef(n, k):
 def find_seq_no_matching_index(arr):
 	m = len(arr)
 	sx = [[0 for i in range(m+1)] for j in range(m+1)]
-	printX(sx, m)
-
 	for i in range(1, m+1):
 		for j in range(1, m+1):
 			if (arr[i-1] == arr[j-1] and i != j):
