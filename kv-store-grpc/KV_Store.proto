@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package KV_Store;
+
+message KV_query {
+  string key    = 1;
+}
+
+message KV_pair {
+  string key    = 1;
+  string value  = 2;
+}
+
+message KV_op_result {
+  bool ok = 1;
+}
+
+service KV_Store_Service {
+  rpc Get(KV_query) returns (KV_pair);
+  rpc Set(KV_pair) returns (KV_op_result);
+}

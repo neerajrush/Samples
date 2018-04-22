@@ -1,0 +1,86 @@
+Network Threats:
+1: L2  ==> ARP spoofing, MAC flooding.
+2: L3  ==> Ping/ICMP flooding.
+3: L4  ==> TCP sync flooding, sniffing, TCP attacks, Routing attacks
+4: L7  ==> DNS poisoning, Phishing, SQL injection, mem-cache injection, Spam/Scam
+
+Common Types of Attacks:
+1: Ping Sweeps and Port Scans: reconnaissance ==> using sophisticated tools find the vounerabilities out there.
+2: Sniffing: Look into wire as packets travel through the network.
+3: Man-in-the-middle: Intercept the messages that are intended for a valid device.
+4: Spoofing: Set a fake device and trick other send messages to it.
+5: Hijecking: Taking control of session.
+6: Denial of Service (DoS, Dynamic DoS):
+
+Not toally Eliminate: More alleviate .. defensive approach. 
+1: Firewall (First line of defense)
+2: Intrusion detection (Second line of defense)
+
+Build Trust on top of TCP/IP network (Application layer L7 Security SSL/TLS)
+1: Strong Authentication
+    a: Two-factor Authorization 
+    b: Some thing You have + Some thing You know
+2: Public Key Infra (PKI) Structure
+
+Access Control:
+	Ability to permit or deny the use of an object any a subject.
+	3 essentional services:
+		a: Autentication
+		b: Authorization (What authorized users can do)
+		c: Accountability (identify what an user did).
+
+Call Tracing: Istio
+Although Istio proxies are able to automatically send spans, they need some hints to tie together the entire trace. Applications need to propagate the appropriate HTTP headers so that when the proxies send span information to Zipkin or Jaeger, the spans can be correlated correctly into a single trace.
+To do this, an application needs to collect and propagate the following headers from the incoming request to any outgoing requests:
+
+    x-request-id
+    x-b3-traceid
+    x-b3-spanid
+    x-b3-parentspanid
+    x-b3-sampled
+    x-b3-flags
+    x-ot-span-context
+
+
+
+microservices framework:
+
+Facebook Thrift
+Hadoop Avro
+Twitter Finagle
+JSON schema
+
+IDL is used by:
+Thrift
+Avro
+CORBA
+Protocol Buffers
+
+
+P(B|A) * P(A) = P(A|B) * P(B)
+
+P(male|fly) * P(fly) = P(fly|male) * P(male)
+
+P(A and B)
+
+P(A|B) * P(B) = P(A and B)
+P(A|B) = 0.12 / 0.48 = 1/4
+
+
+		99 (+)
+       D+: 100 
+		 1 (-)
+1000 --
+		45 (+)
+       D-: 900
+		855 (-)
+
+P(D&+)99 / 1000 = 0.099
+
+45 + 99 / 1000
+P(+) = 144/1000 = 0.144
+
+P(D&+) = 0.099 
+
+P(D|+) = P(D&+)/P(+) = 0.099/0.144
+
