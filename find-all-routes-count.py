@@ -3,7 +3,7 @@ class point:
 		self.dx = x
 		self.dy = y
 
-def is_blocked(i, j):
+def is_blocked(i, j, blocked):
 	for x in range(len(blocked)):
 		if i ==  blocked[x].dx and j == blocked[x].dy:
 			return True
@@ -12,15 +12,15 @@ def is_path(i, j , M, N, blocked):
 	if i == M - 1 and j == N - 1:
 		return True
 
-	if is_blocked(i, j):
+	if is_blocked(i, j, blocked):
 		return False
 
         # right direction already blocked (i == M -1)
-	if j == N-1 and is_blocked(i+1, j):
+	if j == N-1 and is_blocked(i+1, j, blocked):
 		return False
 
         # down direction already blocked ( j == N -1)
-	if i == M-1 and is_blocked(i, j+1):
+	if i == M-1 and is_blocked(i, j+1, blocked):
 		return False
 
 	return True
