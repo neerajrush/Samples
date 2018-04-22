@@ -1,3 +1,33 @@
+########################################
+# An exampled for Dynamic Programming:
+#
+# Author: Neeraj Sharma
+#
+########################################
+# Problem: find all possible paths from Start:(0, 0) to End:(5, 5)
+########################################
+# Input: 5 X 5 Matrix with move allowed only
+#        either in right direction or down direction.
+#        if Cell is marked as 'X'.. means the path is blocked.
+#
+# [[0, 0, 0, 0, 0, 0], 
+#  [0, 0, 0, 0, 0, X],   blocked: (1, 5)
+#  [0, 0, 0, X, 0, 0],   blocked: (2, 3)
+#  [0, 0, 0, 0, 0, 0], 
+#  [0, X, 0, X, 0, 0],   blocked: (4, 1), (4, 3)
+#  [0, 0, 0, 0, 0, 0]]
+########################################
+# Result:
+########################################
+# Count:  61
+# [[61, 32, 16, 8, 4, 0], 
+#  [29, 16,  8, 4, 4, 0], 
+#  [13,  8,  4, 0, 4, 1], 
+#  [ 5,  4,  4, 3, 3, 1], 
+#  [ 1,  0,  1, 0, 2, 1], 
+#  [ 1,  1,  1, 1, 1, 1]]
+########################################
+
 class point:
 	def __init__(self, x, y):
 		self.dx = x
@@ -25,24 +55,6 @@ def is_path(i, j , M, N, blocked):
 
 	return True
 
-#
-# Input: number of paths from (0, 0) to (5, 5):
-# [[0, 0, 0, 0, 0, 0], 
-#  [0, 0, 0, 0, 0, X],   blocked: (1, 5)
-#  [0, 0, 0, X, 0, 0],   blocked: (2, 3)
-#  [0, 0, 0, 0, 0, 0], 
-#  [0, X, 0, X, 0, 0],   blocked: (4, 1), (4, 3)
-#  [0, 0, 0, 0, 0, 0]]
-#
-#
-# Result:
-# Count:  61
-# [[61, 32, 16, 8, 4, 0], 
-#  [29, 16,  8, 4, 4, 0], 
-#  [13,  8,  4, 0, 4, 1], 
-#  [ 5,  4,  4, 3, 3, 1], 
-#  [ 1,  0,  1, 0, 2, 1], 
-#  [ 1,  1,  1, 1, 1, 1]]
 
 if __name__ == "__main__":
 	M = 6
