@@ -37,6 +37,7 @@ def is_blocked(i, j, blocked):
 	for x in range(len(blocked)):
 		if i ==  blocked[x].dx and j == blocked[x].dy:
 			return True
+	return False
 
 def is_path(i, j , M, N, blocked):
 	if i == M - 1 and j == N - 1:
@@ -55,6 +56,23 @@ def is_path(i, j , M, N, blocked):
 
 	return True
 
+# Recursive Solution:
+def f_path(i, j, M, N, blocked):
+	if i == 0 or j == 0:
+		return 1
+
+	if is_blocked(i, j, blocked):
+		return 0
+
+        # right direction already blocked (i == M -1)
+	if j == N-1 and is_blocked(i+1, j, blocked):
+		return 0
+
+        # down direction already blocked ( j == N -1)
+	if i == M-1 and is_blocked(i, j+1, blocked):
+		return 0
+
+	return f_path(i-1, j, M, N, blocked) + f_path(i, j-1, M, N, blocked)
 
 if __name__ == "__main__":
 	M = 6
@@ -70,3 +88,5 @@ if __name__ == "__main__":
 					grid[i][j] = 1
 	print("Count: ", grid[0][0])
 	print (grid)
+	cx = f_path(5, 5, M, N, blocked)
+	print("Recursive Count: ", cx)
