@@ -4,9 +4,7 @@ def bubbleSort(arr):
 		j = i-1 
 		k = i
 		while j >= 0 and arr[j] > arr[k]:
-			tmp = arr[k]
-			arr[k] = arr[j]
-			arr[j] = tmp 
+			arr[k], arr[j] = arr[j], arr[k]
 			j -= 1
 			k -= 1
 	return arr
@@ -63,6 +61,7 @@ class Node:
 		return max(h1, h2)
 
 	def insert(self, data):
+		print("self data: ", self.data, data)
 		if data < self.data:
 			if self.left is None:
 				self.left = Node(data)
@@ -129,7 +128,6 @@ class Node:
 		if self.right is not None:
 			self.right.printTree(depth+2)
 
-
 def binaryTree(arr):
 	root = None
 	for i in range(len(arr)):
@@ -139,11 +137,32 @@ def binaryTree(arr):
 			root.insert(arr[i])
 	return root
 
+data_arr = []
+def print_all_paths(root):
+	if not root:
+		return False
+
+	data_arr.append(root.data)
+
+	if not root.left and not root.right:
+		print(data_arr)
+		data_arr.pop()
+		return True
+
+	l = print_all_paths(root.left)
+	r = print_all_paths(root.right)
+
+	if l or r:
+		data_arr.pop()
+
+	return l and r
+		
 if __name__ == "__main__":
 	arr = [ 3, 5, 1, 7, 8, 4, 9, 6, 2 ]
-	#arr = bubbleSort(arr)
+	arr = bubbleSort(arr)
 	print("Given list: ", arr)
 	print("----------------------")
+	arr = [ 7, 5, 1, 3, 8, 4, 9, 6, 2 ]
 	tree = binaryTree(arr)
 	print("----------------------")
 	print("Binary Tree (InOrder): ")
@@ -159,4 +178,7 @@ if __name__ == "__main__":
 	print("----------------------")
 	print("Binary Tree (root): ", tree.data)
 	tree.printTree()
+	print("----------------------")
+	print("Print All Paths: ", tree.data)
+	print_all_paths(tree)
 	print("----------------------")

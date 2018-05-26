@@ -55,21 +55,24 @@ def print_ancesters(root, data):
 		print(root.data)
 		return True
 
-y_arr = []
 def print_all_paths(root):
 	if not root:
 		return
+	y_arr = []
 	arr = [] 
 	arr.append(root)
 	while len(arr):
 		node = arr.pop()
 		y_arr.append(node.data)
+		leaf_found = False
 		if not node.left and not node.right:
 			print(y_arr)
 			y_arr.pop()
-			
+			leaf_found = True
+
 		if node.left:
 			arr.append(node.left)
+
 		if node.right:
 			arr.append(node.right)
 

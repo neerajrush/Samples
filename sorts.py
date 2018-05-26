@@ -4,7 +4,7 @@ def insertionSort(arr):
 		k = i
 		while k > 0 and arr[k-1] > value:
 			arr[k] = arr[k-1]
-			k = k-1
+			k -= 1
 		arr[k] = value
 
 def insertionSort2(arr, n):
@@ -40,9 +40,7 @@ def selectionSort(arr, n):
 		print("Y arr: ", arr)
 
 def swap( A, x, y ):
-	tmp = A[x]
-	A[x] = A[y]
-	A[y] = tmp
+	A[x], A[y] = A[x], A[y]
 
 def selectionSortX( arr, n ):
 	for i in range( n ):
@@ -51,7 +49,6 @@ def selectionSortX( arr, n ):
 		for k in range( i + 1 , n ):
 			if arr[k] < arr[least]:
 				least = k
-
 		swap( arr, least, i )
 		print("Y arr: ", arr)
 
@@ -108,9 +105,7 @@ def heapSort(arr, n):
 	for i in range (0, n):
 		for j in range(i,n):
 			if arr[i] < arr[j]:
-				tmp = arr[i]
-				arr[i] = arr[j]
-				arr[j] = tmp 
+				arr[i[, arr[j] = arr[j], arr[i]
 
 def divide(arr, begin, end):
 	pivot = arr[end]

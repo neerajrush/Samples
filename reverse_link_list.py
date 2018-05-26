@@ -23,19 +23,36 @@ def reverse_ll(head):
 		return
 	x = head.next
 	head.next = 0
-	fx = head
+	follow_x = head
 	while x:
 		t = x
 		x = x.next
-		t.next = fx
-		fx = t
-	head = fx
+		t.next = follow_x
+		follow_x = t
+	head = follow_x
+	return head
+
+def reverse_link_list(head):
+	if not head or not head.next:
+		return
+	x = head.next
+	head.next = None
+	fwx = head
+	while x:
+		t = x
+		x = x.next
+		t.next = fwx
+		fwx = t
+	head = fwx
 	return head
 
 if __name__ == "__main__":
 	head = Node(10)
 	for i in range(10)[::-1]:
 		head = insert_ll(head, Node(i))
+	print_ll(head)
+	print("------------")
+	head = reverse_link_list(head)
 	print_ll(head)
 	print("------------")
 	head = reverse_ll(head)
